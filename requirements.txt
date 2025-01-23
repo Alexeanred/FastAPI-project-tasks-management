@@ -1,0 +1,11 @@
+fastapi==0.115.6
+uvicorn==0.23.2
+SQLAlchemy==2.0.28
+sqlmodel==0.0.22
+starlette==0.41.3
+psycopg2-binary==2.9.10
+pydantic==2.10.5
+pydantic-settings==2.7.1
+pydantic_core==2.27.2
+pydantic[email]
+python-dotenv==1.0.1

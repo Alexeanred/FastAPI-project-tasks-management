@@ -1,0 +1,6 @@
+func.txt
+plan.txt
+vande.txt
+__pycache__/
+.pytest_cache/
+.vscode/
