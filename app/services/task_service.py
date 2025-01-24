@@ -55,11 +55,16 @@ def update_task(session: Session, task_id: UUID, task_data: TaskUpdate):
         status = session.get(Status, task_data.status_id)
         if not status:
             raise HTTPException(status_code=404, detail="Status not found")
+    task_db.status_id = task_data.status_id
     # check deadline
     if task_data.deadline:
-        if task_data.deadline < datetime.utcnow():
+        # Convert to UTC if the datetime is offset-naive
+        if task_data.deadline.tzinfo is None:
+            task_data.deadline = task_data.deadline.replace(tzinfo=timezone.utc)
+        # Check if deadline is in the past
+        if task_data.deadline < datetime.now(timezone.utc):
             raise HTTPException(status_code=400, detail="Deadline must be in the future.")
-
+    task_db.deadline = task_data.deadline
     # name
     if task_data.name:
         task_db.name = task_data.name
