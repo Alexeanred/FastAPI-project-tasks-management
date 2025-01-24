@@ -26,9 +26,9 @@ class Project(ProjectBase, table=True):
     id: UUID | None = Field(default_factory=uuid4, primary_key=True)
 
     # 1 project có nhiều tasks
-    tasks: List["Task"] = Relationship(back_populates="project")
+    tasks: List["Task"] = Relationship(back_populates="project", cascade_delete=True)
     # 1 project có nhiều users
-    users: list["UserProject"] = Relationship(back_populates="project")
+    users: list["UserProject"] = Relationship(back_populates="project", cascade_delete=True)
 
 
 

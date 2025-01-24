@@ -22,9 +22,9 @@ class User(UserBase, table=True):
     updated_at: datetime = Field(default_factory=datetime.utcnow)
     
     # 1 user có thể nhiều tasks
-    tasks: List["Task"] = Relationship(back_populates="user")
+    tasks: List["Task"] = Relationship(back_populates="user", cascade_delete=True)
     # 1 user có thể tham gia nhiều projects
-    projects: List["UserProject"] = Relationship(back_populates="user")
+    projects: List["UserProject"] = Relationship(back_populates="user", cascade_delete=True)
 
 
 # user có dùng chung là name, email
