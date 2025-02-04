@@ -1,6 +1,6 @@
 # FastAPI project tasks management
 
-A robust and scalable Task Management System built with **FastAPI**, designed to manage tasks, projects, users, and statuses effectively. This application features user authentication, project management, task assignment, and more.
+A robust and scalable Task Management System built with **FastAPI**, designed to manage tasks, projects, users, and statuses effectively. This application features project management, task assignment, and more.
 
 ---
 
@@ -12,7 +12,6 @@ A robust and scalable Task Management System built with **FastAPI**, designed to
 - [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
-- [License](#license)
 
 ---
 
@@ -20,7 +19,7 @@ A robust and scalable Task Management System built with **FastAPI**, designed to
 
 - **User Management**: Create, update, delete users, and retrieve user details.
 - **Project Management**: Manage projects, assign users to projects.
-- **Task Management**: Assign tasks to users, update task details, and delete tasks.
+- **Task Management**: Create tasks, Assign tasks to users, update task details, and delete tasks.
 - **Status Management**: Add, update, and delete task statuses.
 - **Pagination and Filtering**: Efficiently handle large datasets with pagination and query filtering.
 - **Database Support**: PostgreSQL integration using SQLAlchemy and SQLModel.
@@ -31,10 +30,8 @@ A robust and scalable Task Management System built with **FastAPI**, designed to
 
 - **Backend Framework**: FastAPI
 - **Database**: PostgreSQL
-- **ORM**: SQLAlchemy, SQLModel
-- **Authentication**: OAuth2 with Password Flow
+- **ORM**: SQLModel
 - **Testing**: Pytest
-- **Dependency Management**: Python Poetry
 - **Containerization**: Docker
 
 ---
@@ -90,12 +87,21 @@ A robust and scalable Task Management System built with **FastAPI**, designed to
 
 ---
 
+## Run with Docker
+- Build the docker image.
+```
+docker build -t image_name .
+```
+- Run docker compose (build image)
+```
+docker compose up --build
+```
+
 ## Environment Variables
 
 The application uses the following environment variables:
 
 - `DATABASE_URL`: PostgreSQL database connection URL.
-- `SECRET_KEY`: Secret key for JWT authentication.
 
 ---
 
@@ -138,13 +144,10 @@ The application uses the following environment variables:
 Run the test suite using Pytest:
 
 ```bash
-pytest
+pytest tests\
 ```
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 
